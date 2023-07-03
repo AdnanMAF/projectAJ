@@ -6,6 +6,7 @@ import Fitur from './Components/Fitur';
 import DoTask from './Components/DoTask';
 import AboutUs from './Components/AboutUs';
 import Footer from "./Components/Footer";
+import './App.css'
 
 function App() {
   return (
