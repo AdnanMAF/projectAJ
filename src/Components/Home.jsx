@@ -1,11 +1,11 @@
 import React from "react";
-import TOF from "../Photo/image.png";
+import TOF from "../Photo/planning-schedule-time-management-with-calendar-business-meeting-activities-events-organizing-process-office-working-background-vector-illustration_2175-1009.png";
 
 function Home() {
   return (
-    <div className="relative h-fit -pb-10">
+    <div className="relative h-fit">
       <img
-        className="object-cover w-full h-full opacity-60"
+        className="object-cover w-full h-full sticky -z-10"
         src={TOF}
         alt="Background foto"
       />
@@ -18,7 +18,7 @@ function Home() {
           <div className="mt-4">
             <a
               href="./Fitur"
-              className="rounded-full ring-2 ring-pink-500"
+              className="rounded-full ring-2 ring-pink-500 px-2"
             >
               Get Started
             </a>

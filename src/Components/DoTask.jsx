@@ -24,6 +24,7 @@ function DoTask() {
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
+    console.log("Task Saved!");
   }, [tasks]);
 
   useEffect(() => {
@@ -36,7 +37,8 @@ function DoTask() {
           displayNotification(task.task, "The deadline has passed!", task);
         } else if (
           task.reminder.includes(timeRemaining) &&
-          !triggeredNotifications.includes(task.task)
+          !triggeredNotifications.includes(task.task) &&
+          !task.done // Check if task progress is not finished
         ) {
           displayNotification(
             task.task,
@@ -99,8 +101,8 @@ function DoTask() {
         setEditMode(false);
         setEditModeIndex(-1);
       } else {
-        setTasks([
-          ...tasks,
+        setTasks((prevTasks) => [
+          ...prevTasks,
           { task: newTask, deadline, reminder: selectedIntervals, done: false },
         ]);
       }
@@ -140,26 +142,24 @@ function DoTask() {
   };
 
   const displayNotification = (taskName, message, task) => {
-    const options = {
-      body: message,
-      requireInteraction: true,
-    };
+    if (!triggeredNotifications.includes(task.task)) {
+      const options = {
+        body: message,
+        requireInteraction: true,
+      };
 
-    const notification = new Notification(taskName, options);
+      const notification = new Notification(taskName, options);
 
-    notification.onclick = () => {
-      console.log("Notification clicked:", task);
-    };
+      notification.onclick = () => {
+        console.log("Notification clicked:", task);
+      };
 
-    notification.onclose = () => {
-      console.log("Notification closed:", task);
-      setTriggeredNotifications(
-        triggeredNotifications.filter(
-          (notificationTask) => notificationTask !== task.task
-        )
-      );
-      displayNotification(task.task, message, task);
-    };
+      notification.onclose = () => {
+        console.log("Notification closed:", task);
+      };
+
+      setTriggeredNotifications([...triggeredNotifications, task.task]);
+    }
   };
 
   const handleSelectAll = (e) => {
@@ -208,26 +208,28 @@ function DoTask() {
       <div className="flex flex-col">
         <div className="overflow-x-auto">
           <div className="flex justify-center">
-            <p className="font-bold font-sans subpixel-antialiased text-7xl uppercase mt-4">To-do List</p>
+            <p className="font-bold font-sans subpixel-antialiased text-7xl uppercase mt-4">
+              To-do List
+            </p>
           </div>
           <div className="flex justify-center my-6">
             <form onSubmit={handleTaskSubmit}>
               <div>
                 <input
-                  className="block w-80 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-80 rounded-md border-0 py-1.5 px-1 mb-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   type="text"
                   placeholder="Task"
                   value={editMode ? newTask : newTask}
                   onChange={handleTaskChange}
                 />
                 <input
-                  className="block w-80 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-80 rounded-md border-0 py-1.5 px-1 mb-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   type="datetime-local"
                   value={editMode ? deadline : deadline}
                   onChange={handleDeadlineChange}
                 />
                 <select
-                  className="block w-80 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-80 rounded-md border-0 py-1.5 px-1 mb-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   value={reminder}
                   onChange={handleReminderChange}
                 >

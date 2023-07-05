@@ -1,20 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import TOF from '../Photo/Fiona-TOF.jpg';
-            
+import TOF from "../Photo/Fiona-TOF.jpg";
+
 const navigation = [
   { name: "Home", href: "/", current: false },
   { name: "Feature", href: "/fitur", current: false },
   { name: "Do Task", href: "/do-task", current: false },
   { name: "About Us", href: "/about-us", current: false },
 ];
-    
+
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
+  return classes.filter(Boolean).join(" ");
 }
 
-export default function Navbar() {
+const Navbar = () => {
+  const [currentURL, setCurrentURL] = useState("");
+
+  useEffect(() => {
+    setCurrentURL(window.location.pathname);
+  }, []);
   return (
     <Disclosure as="nav" className="bg-gray-800 shadow-xl sticky top-0">
       {({ open }) => (
@@ -53,10 +58,12 @@ export default function Navbar() {
                         href={item.href}
                         key={item.name}
                         className={classNames(
-                          item.current ? "bg-gray-600 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                          item.href === currentURL
+                            ? "bg-gray-600 text-white"
+                            : "text-gray-300 hover:bg-gray-700 hover:text-white",
                           "rounded-md px-3 py-2 text-sm font-medium"
                         )}
-                        aria-current={item.current ? "page" : undefined}
+                        aria-current={item.href === currentURL ? "page" : undefined}
                       >
                         {item.name}
                       </a>
@@ -74,7 +81,9 @@ export default function Navbar() {
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current ? "bg-gray-600 text-white" : "text-gray-300 hover:bg-gray-800 hover:text-white",
+                    item.current
+                      ? "bg-gray-600 text-white"
+                      : "text-gray-300 hover:bg-gray-800 hover:text-white",
                     "block rounded-md px-3 py-2 text-base font-medium"
                   )}
                   aria-current={item.current ? "page" : undefined}
@@ -88,4 +97,6 @@ export default function Navbar() {
       )}
     </Disclosure>
   );
-}
+};
+
+export default Navbar;

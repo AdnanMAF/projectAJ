@@ -1,110 +1,77 @@
 import React, { useState } from "react";
-import {
-  Collapse,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Typography,
-} from "@material-tailwind/react";
-import profile1 from "../Photo/Swafoto.2.jpg";
-import profile2 from "../Photo/IMG_20220711_192310_edit_240758458691386.png";
+import profileImage1 from "../Photo/Swafoto.2.jpg";
+import profileImage2 from "../Photo/IMG_20220711_192310_edit_240758458691386.png";
 
-export default function AboutUs() {
-  const [open1, setOpen1] = useState(false);
-  const [open2, setOpen2] = useState(false);
+export default function ProfileCard() {
+  const [showMore1, setShowMore1] = useState(false);
+  const [showMore2, setShowMore2] = useState(false);
 
-  const toggleOpen1 = () => setOpen1((cur) => !cur);
-  const toggleOpen2 = () => setOpen2((cur) => !cur);
+  const handleShowMore1 = () => {
+    setShowMore1(!showMore1);
+  };
+
+  const handleShowMore2 = () => {
+    setShowMore2(!showMore2);
+  };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-slate-100">
-      <Card className="w-96 mx-4 bg-white overflow-hidden shadow-lg">
-        <CardHeader color="blue-gray" className="relative">
+    <div className="flex justify-center items-center h-screen">
+      <div className="w-[408px] mr-2 bg-white shadow-lg rounded-2xl overflow-hidden">
+        <div className="">
           <img
-            src={profile1}
-            alt="img-blur-shadow"
-            layout="fill"
-            className="object-contain h-96 rounded-3xl mx-auto"
+            className="w-full h-80 object-cover object-top"
+            src={profileImage1}
+            alt="Profile"
           />
-        </CardHeader>
-        <CardBody>
-          <Typography
-            variant="h5"
-            color="blue-gray"
-            className="flex justify-center my-2"
-          >
-            Muhamad Adnan Fadillah
-          </Typography>
-          <Typography
-            variant="h5"
-            color="blue-gray"
-            className="flex justify-center my-2"
-          >
-            2207411048
-          </Typography>
-        </CardBody>
-        <CardFooter className="pt-0">
-          <div className="flex justify-center my-4">
-            <a onClick={toggleOpen1}>
-              Show More
-            </a>
+        </div>
+        <div className="p-4">
+          <p className="text-xl text-gray-800">Muhamad Adnan Fadillah</p>
+          <p className="text-gray-800">2207411048</p>
+          <div className="mt-2">
+            <button
+              className="text-black hover:underline focus:outline-none"
+              onClick={handleShowMore1}
+            >
+              {showMore1 ? "Show Less.." : "Show More.."}
+            </button>
           </div>
-          <Collapse open={open1}>
-            <Card className="my-4 mx-auto w-8/12">
-              <CardBody>
-                <Typography>
-                  Use our Tailwind CSS collapse for your website. You can use if
-                  for accordion, collapsible items and much more.
-                </Typography>
-              </CardBody>
-            </Card>
-          </Collapse>
-        </CardFooter>
-      </Card>
-      <Card className="w-96 mx-4 bg-white overflow-hidden shadow-lg">
-        <CardHeader color="blue-gray" className="relative">
+          {showMore1 && (
+            <div className="mt-4">
+              <p className="text-gray-600">Class: TI-2B</p>
+              <p className="text-gray-600">Email: muhamad.adnan.fadillah.tik22@mhsw.pnj.ac.id</p>
+              {/* Additional information goes here */}
+            </div>
+          )}
+        </div>
+      </div>
+      <div className="w-[408px] ml-2 bg-white shadow-lg rounded-2xl overflow-hidden">
+        <div className="">
           <img
-            src={profile2}
-            alt="img-blur-shadow"
-            layout="fill"
-            className="object-contain h-96 rounded-3xl mx-auto"
+            className="w-full h-80 object-cover object-top"
+            src={profileImage2}
+            alt="Profile"
           />
-        </CardHeader>
-        <CardBody>
-        <Typography
-            variant="h5"
-            color="blue-gray"
-            className="flex justify-center my-2"
-          >
-            Juan Graciano
-          </Typography>
-          <Typography
-            variant="h5"
-            color="blue-gray"
-            className="flex justify-center my-2"
-          >
-            2207411040
-          </Typography>
-        </CardBody>
-        <CardFooter className="pt-0">
-          <div className="flex justify-center my-4">
-            <a onClick={toggleOpen2}>
-              Show More
-            </a>
+        </div>
+        <div className="p-4">
+          <p className="text-xl text-gray-800">Juan Graciano</p>
+          <p className="text-gray-800">2207411040</p>
+          <div className="mt-2">
+            <button
+              className="text-black hover:underline focus:outline-none"
+              onClick={handleShowMore2}
+            >
+              {showMore2 ? "Show Less.." : "Show More.."}
+            </button>
           </div>
-          <Collapse open={open2}>
-            <Card className="my-4 mx-auto w-8/12">
-              <CardBody>
-                <Typography>
-                  Use our Tailwind CSS collapse for your website. You can use if
-                  for accordion, collapsible items and much more.
-                </Typography>
-              </CardBody>
-            </Card>
-          </Collapse>
-        </CardFooter>
-      </Card>
+          {showMore2 && (
+            <div className="mt-4">
+              <p className="text-gray-600">Class: Ti-2B</p>
+              <p className="text-gray-600">Email: johndoe@example.com</p>
+              {/* Additional information goes here */}
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
