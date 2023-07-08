@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import TOF from "../Photo/Fiona-TOF.jpg";
+import TOF from "../Photo/logo.png";
 
 const navigation = [
   { name: "Home", href: "/", current: false },
@@ -9,6 +9,7 @@ const navigation = [
   { name: "Do Task", href: "/do-task", current: false },
   { name: "About Us", href: "/about-us", current: false },
 ];
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -38,17 +39,17 @@ const Navbar = () => {
                   )}
                 </Disclosure.Button>
               </div>
-              <div className="flex flex-1 items-center justify-end sm:items-stretch sm:justify-between">
+              <div className="flex flex-1 items-center justify-end sm:items-stretch sm:justify-between max-h-9">
                 <div className="flex flex-shrink-0 items-center">
                   <img
                     src={TOF}
                     alt="Logo"
-                    className="rounded-full block h-8 w-auto lg:hidden"
+                    className="rounded-full block h-14 w-auto lg:hidden"
                   />
                   <img
                     src={TOF}
                     alt="Logo"
-                    className="rounded-full hidden h-8 w-auto lg:block"
+                    className="rounded-full hidden h-14 w-auto lg:block"
                   />
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
