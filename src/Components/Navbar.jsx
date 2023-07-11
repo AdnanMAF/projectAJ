@@ -22,7 +22,7 @@ const Navbar = () => {
     setCurrentURL(window.location.pathname);
   }, []);
   return (
-    <Disclosure as="nav" className="bg-gray-800 shadow-xl sticky top-0">
+    <Disclosure as="nav" className="bg-gray-800 shadow-xl sticky top-0 z-10">
       {({ open }) => (
         <>
           <div className="mx-auto px-2 sm:px-6 lg:px-8">

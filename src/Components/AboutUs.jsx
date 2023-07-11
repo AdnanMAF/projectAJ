@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import profileImage1 from "../Photo/Swafoto.2.jpg";
+import profileImage1 from "../Photo/Swafoto_3_hitpaw_com-transformed.png";
 import profileImage2 from "../Photo/IMG_20220711_192310_edit_240758458691386.png";
 
 export default function ProfileCard() {
@@ -15,7 +15,7 @@ export default function ProfileCard() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-screen bg-slate-100">
       <div className="w-[408px] mr-2 bg-white shadow-lg rounded-2xl overflow-hidden">
         <div className="">
           <img

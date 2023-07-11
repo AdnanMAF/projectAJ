@@ -3,9 +3,9 @@ import TOF from "../Photo/steps-of-the-strategic-planning-process.png";
 
 function Home() {
   return (
-    <div className="relative h-fit">
+    <div className="relative h-fit bg-slate-100">
       <img
-        className="object-cover w-full h-full sticky -z-10"
+        className="object-cover w-full h-full sticky"
         src={TOF}
         alt="Background foto"
       />
