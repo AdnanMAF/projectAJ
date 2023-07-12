@@ -1,5 +1,5 @@
 import React from "react";
-import TOF from "../Photo/planning-schedule-time-management-with-calendar-business-meeting-activities-events-organizing-process-office-working-background-vector-illustration_2175-1009.png";
+import TOF from "../Photo/steps-of-the-strategic-planning-process.png";
 
 function Home() {
   return (
