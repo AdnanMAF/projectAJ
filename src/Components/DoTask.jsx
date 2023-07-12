@@ -204,7 +204,7 @@ function DoTask() {
   };
 
   return (
-    <div className="bg-slate-100">
+    <div className="bg-slate-100 h-screen">
       <div className="flex flex-col">
         <div className="overflow-x-auto">
           <div className="flex justify-center">

@@ -65,8 +65,8 @@ export default function ProfileCard() {
           </div>
           {showMore2 && (
             <div className="mt-4">
-              <p className="text-gray-600">Class: Ti-2B</p>
-              <p className="text-gray-600">Email: johndoe@example.com</p>
+              <p className="text-gray-600">Class: TI-2B</p>
+              <p className="text-gray-600">Email: juan.graciano.tik22@mhsw.pnj.ac.id</p>
               {/* Additional information goes here */}
             </div>
           )}

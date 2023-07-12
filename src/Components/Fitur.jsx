@@ -3,7 +3,7 @@ import ftrimg from '../Photo/gambar fitur.png'
 
 function Fitur() {
     return (
-        <div className="overflow-hidden bg-slate-100">
+        <div className="overflow-hidden bg-slate-100 h-screen">
             <div className="mx-auto max-w-7xl my-0 px-0 py-10">
                 <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-28 lg:mx-0 lg:max-w-none lg:grid-cols-2">
                     <div className="lg:pr-8 lg:pt-4">

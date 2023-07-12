@@ -2,7 +2,7 @@ import React from "react";
 
 export default function SimpleFooter() {
   return (
-    <footer className="fixed bg-white shadow dark:bg-gray-800 bottom-0 left-0 w-full">
+    <footer className="fixed bg-white shadow shadow-slate-700 dark:bg-gray-800 bottom-0 left-0 w-full">
       <div className="w-full mx-auto max-w-screen h-14 p-4 md:flex md:items-center">
         <div className="inline-flex inset-y-0 items-center">
           <svg
@@ -23,7 +23,7 @@ export default function SimpleFooter() {
               </a>
             </li>
             <li>
-              <a href="#">Juan Graciano</a>
+              <a href="https://www.instagram.com/jugracia808">Juan Graciano</a>
             </li>
           </ul>
         </div>
