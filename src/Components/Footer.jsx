@@ -2,9 +2,9 @@ import React from "react";
 
 export default function SimpleFooter() {
   return (
-    <footer className="fixed bg-white shadow shadow-slate-700 dark:bg-gray-800 bottom-0 left-0 w-full">
+    <footer className="relative bg-white shadow shadow-slate-700 dark:bg-gray-800 bottom-0 left-0 w-full sm:fixed">
       <div className="w-full mx-auto max-w-screen h-14 p-4 md:flex md:items-center">
-        <div className="inline-flex inset-y-0 items-center">
+        <div className="sm:inline-flex flex inset-y-0 items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-7 w-7"
@@ -19,7 +19,7 @@ export default function SimpleFooter() {
           <ul className="flex flex-col mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
             <li>
               <a href="https://www.instagram.com/adnan.f13h">
-                Muhamad Adnan Fadillah
+                Muhammad Adnan Fadillah
               </a>
             </li>
             <li>
