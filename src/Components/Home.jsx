@@ -3,17 +3,15 @@ import TOF from "../Photo/steps-of-the-strategic-planning-process.png";
 
 function Home() {
   return (
-    <div className="relative h-fit bg-slate-100">
-      <img
-        className="object-cover w-full h-screen sm:h-auto sticky block sm:hidden"
-        src={TOF}
-        alt="Background foto"
-      />
-      <img
-        className="bg-cover bg-center h-screen sm:h-auto sm:bg-none hidden sm:block object-center"
-        src={TOF}
-        alt="Background foto"
-      />
+    <div className="relative h-screen bg-slate-100">
+      <div
+      className="absolute inset-0 z-0"
+      style={{
+        backgroundImage: `url(${TOF})`,
+        filter: 'blur(10px)',
+        opacity: '0.5',
+      }}
+    ></div>
       <div className="absolute inset-0 hidden items-center justify-center my-auto lg:flex">
         <div className="text-center bg-transparent">
           <h1 className="text-4xl font-extrabold text-black sm:text-5xl md:text-6xl">
@@ -49,7 +47,7 @@ function Home() {
               </a>
               <a
                 href="./fitur"
-                className="text-sm font-semibold leading-6 text-blue-600 hover:text-blue-400 active:text-purple-700"
+                className="text-sm font-semibold leading-6 text-blue-600 hover:text-blue-500 active:text-purple-700"
               >
                 Learn more <span aria-hidden="true">→</span>
               </a>

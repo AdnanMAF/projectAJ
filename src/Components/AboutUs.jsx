@@ -27,21 +27,21 @@ export default function ProfileCard() {
         <div className="p-4">
           <p className="text-xl text-gray-800">Muhamad Adnan Fadillah</p>
           <p className="text-gray-800">2207411048</p>
+          {showMore1 && (
+            <div className="mt-4">
+              <p className="text-black">Class: TI-2B</p>
+              <p className="text-black">Email: muhamad.adnan.fadillah.tik22@mhsw.pnj.ac.id</p>
+              {/* Additional information goes here */}
+            </div>
+          )}
           <div className="mt-2">
             <button
-              className="text-black hover:underline focus:outline-none"
+              className="text-blue-600 hover:underline focus:outline-none"
               onClick={handleShowMore1}
             >
               {showMore1 ? "Show Less.." : "Show More.."}
             </button>
           </div>
-          {showMore1 && (
-            <div className="mt-4">
-              <p className="text-gray-600">Class: TI-2B</p>
-              <p className="text-gray-600">Email: muhamad.adnan.fadillah.tik22@mhsw.pnj.ac.id</p>
-              {/* Additional information goes here */}
-            </div>
-          )}
         </div>
       </div>
       <div className="w-[408px] ml-2 bg-white shadow-lg rounded-2xl overflow-hidden">
@@ -55,21 +55,20 @@ export default function ProfileCard() {
         <div className="p-4">
           <p className="text-xl text-gray-800">Juan Graciano</p>
           <p className="text-gray-800">2207411040</p>
+          {showMore2 && (
+            <div className="mt-4">
+              <p className="text-black">Class: TI-2B</p>
+              <p className="text-black">Email: juan.graciano.tik22@mhsw.pnj.ac.id</p>
+            </div>
+          )}
           <div className="mt-2">
             <button
-              className="text-black hover:underline focus:outline-none"
+              className="text-blue-600 hover:underline focus:outline-none"
               onClick={handleShowMore2}
             >
               {showMore2 ? "Show Less.." : "Show More.."}
             </button>
           </div>
-          {showMore2 && (
-            <div className="mt-4">
-              <p className="text-gray-600">Class: TI-2B</p>
-              <p className="text-gray-600">Email: juan.graciano.tik22@mhsw.pnj.ac.id</p>
-              {/* Additional information goes here */}
-            </div>
-          )}
         </div>
       </div>
     </div>
